@@ -87,7 +87,7 @@ Date.prototype.dayName = function(language) {
 =            FORMAT PROTOTYPE            =
 ========================================*/
 
-Object.prototype.addMiles = function()
+String.prototype.addMiles = function()
 {
 	try
 	{
@@ -109,7 +109,29 @@ Object.prototype.addMiles = function()
 	}
 };
 
-Object.prototype.removeMiles = function()
+Number.prototype.addMiles = function()
+{
+	try
+	{
+		var value = this.toString().trim();
+
+	    value += '';
+	    x = value.split('.');
+	    x1 = x[0];
+	    x2 = x.length > 1 ? '.' + x[1] : '';
+	    var rgx = /(\d+)(\d{3})/;
+	    while (rgx.test(x1)) {
+	        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+	    }
+	    return x1 + x2;
+	}
+	catch (err)
+	{
+		return null;
+	}
+};
+
+String.prototype.removeMiles = function()
 {
 	try
 	{
@@ -124,13 +146,29 @@ Object.prototype.removeMiles = function()
 	}
 };
 
+Number.prototype.removeMiles = function()
+{
+	try
+	{
+		var value = this.toString().trim();
+		value = parseFloat(value.replace(/,/g, ''));
+
+		return value;
+	}
+	catch(err)
+	{
+		return null;
+	}
+};
+
+
 /*-----  End of FORMAT PROTOTYPE  ------*/
 
 ;/*========================================
 =             IS PROTOTYPE                =
 ========================================*/
 
-Object.prototype.isNumber = function()
+String.prototype.isNumber = function()
 {
 	try
 	{
@@ -149,7 +187,26 @@ Object.prototype.isNumber = function()
 	}
 };
 
-Object.prototype.isBlank = function()
+Number.prototype.isNumber = function()
+{
+	try
+	{
+		var value = this.toString();
+
+		value = value.replace(",","");
+
+	    if (parseFloat(value)!= value)
+	    	return false;
+	    else
+	    	return true;
+	}
+	catch (err)
+	{
+		return false;
+	}
+};
+
+String.prototype.isBlank = function()
 {
 	try
 	{
@@ -170,7 +227,7 @@ Object.prototype.isBlank = function()
 	}
 };
 
-Object.prototype.isDate = function(dateFormat)
+String.prototype.isDate = function(dateFormat)
 {
 	try
 	{
@@ -204,7 +261,7 @@ Object.prototype.isDate = function(dateFormat)
   	}
 };
 
-Object.prototype.isEmail = function() 
+String.prototype.isEmail = function() 
 { 
 	try
 	{

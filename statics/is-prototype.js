@@ -2,7 +2,7 @@
 =             IS PROTOTYPE                =
 ========================================*/
 
-Object.prototype.isNumber = function()
+String.prototype.isNumber = function()
 {
 	try
 	{
@@ -21,7 +21,26 @@ Object.prototype.isNumber = function()
 	}
 };
 
-Object.prototype.isBlank = function()
+Number.prototype.isNumber = function()
+{
+	try
+	{
+		var value = this.toString();
+
+		value = value.replace(",","");
+
+	    if (parseFloat(value)!= value)
+	    	return false;
+	    else
+	    	return true;
+	}
+	catch (err)
+	{
+		return false;
+	}
+};
+
+String.prototype.isBlank = function()
 {
 	try
 	{
@@ -42,7 +61,7 @@ Object.prototype.isBlank = function()
 	}
 };
 
-Object.prototype.isDate = function(dateFormat)
+String.prototype.isDate = function(dateFormat)
 {
 	try
 	{
@@ -76,7 +95,7 @@ Object.prototype.isDate = function(dateFormat)
   	}
 };
 
-Object.prototype.isEmail = function() 
+String.prototype.isEmail = function() 
 { 
 	try
 	{
