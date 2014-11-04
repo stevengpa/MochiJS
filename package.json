@@ -1,0 +1,27 @@
+{
+  "name": "mochijs",
+  "version": "0.0.1",
+  "description": "Provide multiple prototype functionalities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "steven@104.131.100.80:/opt/git/mochijs.git"
+  },
+  "keywords": [
+    "js",
+    "prototype",
+    "javascript"
+  ],
+  "author": "Steven Pérez Alfaro",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-yui-compressor": "^0.3.3"
+  }
+}

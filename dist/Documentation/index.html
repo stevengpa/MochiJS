@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MochiJs Documentation</title>
+	
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap-theme.min.css" />
+
+	<link rel="stylesheet" type="text/css" ="libs/Prettify/prettify.css" />
+	<link rel="stylesheet" type="text/css" href="libs/Prettify/tomorrow.css" />
+
+	<link rel="stylesheet" type="text/css" href="css/docu.css" />
+
+</head>
+<body>
+
+	<nav id="myNav" class="navbar navbar-inverse" role="navigation">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#myNav">MochiJs</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#myNav">Home</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	<section class="container">
+
+	<!-- 		DATE PROTOTYPE		-->
+
+	<div class="panel panel-default">
+	  <div class="panel-heading">Date Prototype</div>
+	  <div class="panel-body">
+
+	  <h4 class="sub-title">Month Name</h4>
+<pre class="prettyprint linenums lang-js">
+/* 
+Parameters: ( language [en, es] )
+Default: ( language = en )
+Description: Get the current month name of the Date variable.
+*/
+var Birthday = new Date();
+Birthday.monthName(); // e.g: November
+Birthday.monthName('en'); // e.g: November
+Birthday.monthName('es'); // e.g: Noviembre
+</pre>
+
+	  <h4 class="sub-title">Day Name</h4>
+<pre class="prettyprint linenums lang-js">
+/* 
+Parameters: ( language [en, es] )
+Default: ( language = en )
+Description: Get the current day name of the Date variable.
+*/
+var TodayIs = new Date();
+TodayIs.dayName(); // e.g: Monday
+TodayIs.dayName('en'); // e.g: Monday
+TodayIs.dayName('es'); // e.g: Lunes
+</pre>
+
+	  </div> <!-- END OF PANEL BODY -->
+
+	</div> <!-- END OF DATE PROTOTYPE-->
+
+	<!-- 		TIME PROTOTYPE		-->
+
+	<div class="panel panel-default">
+	  <div class="panel-heading">Time Object</div>
+	  <div class="panel-body">
+
+	  <h4 class="sub-title">Time Object Functionalities</h4>
+<pre class="prettyprint linenums lang-js">
+/* 
+Description: Time object that returns many information
+*/
+var t = Time();
+
+t.hours();             // 2
+t.minutes();           // 0
+t.period();            // 'pm'
+t.toString();          // '2:00 pm'
+t.nextDate();          // Sep 10 2:00 (assuming it is 1 o'clock Sep 10)
+t.format('hh:mm AM')   // '02:00 PM'
+t.isValid();           // true
+Time.isValid('99:12'); // false
+</pre>
+
+	  </div> <!-- END OF PANEL BODY -->
+
+	</div> <!-- END OF TIME PROTOTYPE -->
+
+	<!-- 		VALIDATION PROTOTYPE		-->
+	
+	<div class="panel panel-default">
+	  <div class="panel-heading">Object Validation Prototype (IS)</div>
+	  <div class="panel-body">
+
+	  <h4 class="sub-title">isNumeric</h4>
+<pre class="prettyprint linenums lang-js">
+/* 
+Description: Validate if it is numeric or not
+*/
+var myNumber = "100a";
+myNumber.isNumber(); // false
+
+var myNumber = "100.4";
+myNumber.isNumber(); // true
+
+var myNumber = "1,000.4";
+myNumber.isNumber(); // true
+</pre>
+
+	  <h4 class="sub-title">isBlank</h4>
+<pre class="prettyprint linenums lang-js">
+/* 
+Description: Validate if a variable not null is blank
+*/
+var text = "";
+text.isBlank(); // true
+
+var text = " ";
+text.isBlank(); // true
+
+var text = "a";
+text.isBlank(); // false
+</pre>
+
+	  <h4 class="sub-title">isDate</h4>
+<pre class="prettyprint linenums lang-js">
+/* 
+Parameters: ( dateFormat [mm/dd/yyyy, dd/mm/yyyy, yyyy-mm-dd, so on] )
+Default: ( dateFormat = mm/dd/yyyy )
+Description: Validate if a variable is a Date
+*/
+var myDate = 'a';
+myDate.isDate(); // false
+
+var myDate = '10/24/2014';
+myDate.isDate(); // true
+myDate.isDate('mm/dd/yyyy'); // true
+
+var myDate = '24/10/2014';
+myDate.isDate(); // false
+myDate.isDate('dd/mm/yyyy'); // true
+
+var myDate = '24-10-2014';
+myDate.isDate(); // false
+myDate.isDate('dd/mm/yyyy'); // false
+myDate.isDate('dd-mm-yyyy'); // true
+
+var myDate = '2014-10-24';
+myDate.isDate(); // false
+myDate.isDate('dd/mm/yyyy'); // false
+myDate.isDate('dd-mm-yyyy'); // false
+myDate.isDate('yyyy-mm-dd'); // true
+</pre>
+
+	  <h4 class="sub-title">isEmail</h4>
+<pre class="prettyprint linenums lang-js">
+/* 
+Description: Validate if a variable is valid email
+*/
+var myEmail = 'steven@';
+myEmail.isEmail(); // false
+
+var myEmail = 'steven@gmail';
+myEmail.isEmail(); // false
+
+var myEmail = 'steven@gmail.com';
+myEmail.isEmail(); // true
+</pre>
+
+	  </div> <!-- END OF PANEL BODY -->
+
+	</div> <!-- END OF VALIDATION PROTOTYPE-->
+
+	<!-- 		FORMAT PROTOTYPE		-->
+
+	<div class="panel panel-default">
+	  <div class="panel-heading">Format Prototype</div>
+	  <div class="panel-body">
+
+	  <h4 class="sub-title">Add Miles</h4>
+<pre class="prettyprint linenums lang-js">
+/* 
+Description: Add the mile separator to a number
+*/
+var Num = "1500.15";
+Num.addMiles(); // "1,500.15"
+
+var Num = 1500.15;
+Num.addMiles(); // "1,500.15"
+</pre>
+
+	  <h4 class="sub-title">Remove Miles</h4>
+<pre class="prettyprint linenums lang-js">
+/* 
+Description: Remove the mile separator to a number
+*/
+var Num = "1,500.26";
+Num.removeMiles(); // 1500.26
+
+var Num = "1,500.26ABCD";
+Num.removeMiles(); // 1500.26
+</pre>
+
+	  </div> <!-- END OF PANEL BODY -->
+
+	</div> <!-- END OF FORMAT PROTOTYPE-->
+
+	<!-- 		FUNCTIONS PROTOTYPE		-->
+
+	<div class="panel panel-default">
+	  <div class="panel-heading">Simple Functions</div>
+	  <div class="panel-body">
+
+	  <h4 class="sub-title">Generate ID</h4>
+<pre class="prettyprint linenums lang-js">
+/* 
+Description: Returns the ID using the DateTime
+*/
+genID(); // "20141003222024414"
+</pre>
+
+	  </div> <!-- END OF PANEL BODY -->
+
+	</div> <!-- END OF FUNCTIONS PROTOTYPE-->
+
+	<!-- 		ARRAY PROTOTYPE		-->
+
+	<div class="panel panel-default">
+	  <div class="panel-heading">Array Prototype</div>
+	  <div class="panel-body">
+
+	  <h4 class="sub-title">Array Filter</h4>
+<pre class="prettyprint linenums lang-js">
+/* 
+Description: Filter an Array Variable
+*/
+var People = [{name: 'Steven', age:28}, {name:'Carlos', age: 26}, {name:'Cindy', Age:24}];
+
+People.filter(
+	function(el) 
+	{ 
+		return (el.name == 'Steven') 
+	}
+);
+</pre>
+
+	  </div> <!-- END OF PANEL BODY -->
+
+	</div> <!-- END OF ARRAY PROTOTYPE -->
+
+	</section>
+
+	<script type="text/javascript" src="libs/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="libs/Prettify/prettify.js"></script>
+
+	<script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- 							COMPRESSED 					-->	
+	<script type="text/javascript" src="libs/mochijs/mochijs.min.js"></script>
+
+	<!-- 						UNCOMPRESSED 					-->
+	<!-- <script type="text/javascript" src="libs/mochijs/mochijs.js"></script> -->
+
+	<!-- 							EXPANDED 					-->
+	<!--
+	<script type="text/javascript" src="../../statics/date-prototype.js"></script>
+	<script type="text/javascript" src="../../statics/is-prototype.js"></script>
+	<script type="text/javascript" src="../../statics/format-prototype.js"></script>
+	<script type="text/javascript" src="../../statics/functions.js"></script>
+	<script type="text/javascript" src="../../statics/array-prototype.js"></script>
+	<script type="text/javascript" src="../../statics/time-prototype.js"></script>
+	-->
+
+	<script type="text/javascript">
+			
+			$(function(){
+				
+			  $(document).ready( function() {
+					prettyPrint();
+			  } );
+			 
+			}())
+				
+		</script>
+</body>
+</html>
