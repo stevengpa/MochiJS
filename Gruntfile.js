@@ -12,6 +12,11 @@ module.exports = function(grunt)
 			},
 			target: {
 				src: [
+					"statics/jquery/jquery-1.11.1.min.js",
+					"statics/moment/moment-2.8.4.min.js",
+					"statics/modulejs/modulejs-1.5.0.min.js",
+					"statics/linqjs/jquery.linq.min.js",
+					"statics/linqjs/linq.min.js",
 					"statics/array-prototype.js",
 					"statics/date-prototype.js",
 					"statics/format-prototype.js",

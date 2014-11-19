@@ -22,10 +22,48 @@ function genID()
 	}
 	catch(err)
 	{
-		console.log(err);
 		return '';
 	}
 };
 
 /*-----  End of GENERATOR PROTOTYPE  ------*/
+
+/*====================================
+=            Set Cache ID            =
+====================================*/
+
+function setCacheID(objData)
+{
+	try
+	{
+		for (key in objData) {
+			objData[key]["cid"] = genID() + key.toString();
+		};
+
+		return objData;
+	}
+	catch(err) { return err; }
+}
+
+/*-----  End of Set Cache ID  ------*/
+
+/*========================================
+=            Get Cache Object            =
+========================================*/
+
+function getCacheObject(cID, objData)
+{
+	try
+	{
+		return Enumerable.From(objData).Where(
+												function (x) { 
+													return x.cid.toString() == cID.toString() 
+												})
+										.Select()
+										.ToArray()[0];
+	}
+	catch(err) { return err; }
+}
+
+/*-----  End of Get Cache Object  ------*/
 
