@@ -24,7 +24,7 @@ module.exports = function(grunt)
 					"statics/time-prototype.js",
 					"statics/functions.js"
 				],
-				dest: "dist/mochijs.js"
+				dest: "dist/mochijs-full.js"
 				
 			},
 
@@ -39,18 +39,35 @@ module.exports = function(grunt)
 				],
 				dest: "dist/Documentation/libs/mochijs/mochijs.js"
 				
+			},
+			
+			target3: {
+				src: [
+					"statics/array-prototype.js",
+					"statics/date-prototype.js",
+					"statics/format-prototype.js",
+					"statics/is-prototype.js",
+					"statics/time-prototype.js",
+					"statics/functions.js"
+				],
+				dest: "dist/mochijs-original.js"
+				
 			}
 			
 		},
 
 		min: {
 			target: {
-				src: ["dist/mochijs.js"],
-				dest: "dist/mochijs.min.js"
+				src: ["dist/mochijs-full.js"],
+				dest: "dist/mochijs-full.min.js"
 			},
 			target2: {
 				src: ["dist/Documentation/libs/mochijs/mochijs.js"],
 				dest: "dist/Documentation/libs/mochijs/mochijs.min.js"
+			},
+			target3: {
+				src: ["dist/mochijs-original.js"],
+				dest: "dist/mochijs-original.min.js"
 			}
 		},
 
@@ -63,13 +80,17 @@ module.exports = function(grunt)
 
 		clean: {
 			target: [
-				"dist/mochijs.js", 
-				"dist/mochijs.min.js"
+				"dist/mochijs-full.js", 
+				"dist/mochijs-full.min.js"
 			],
 			target2: [
 				"dist/Documentation/libs/mochijs.js",
 				"dist/Documentation/libs/mochijs.min.js"
 			],
+			target3: [
+				"dist/mochijs-original.js",
+				"dist/mochijs-original.min.js"
+			]
 		}
 
 	});
